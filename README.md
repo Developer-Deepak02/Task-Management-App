@@ -1,4 +1,4 @@
-🗂️ Task Management App – MERN Stack
+#🗂️ Task Management App – MERN Stack
 A full-featured Task Management Application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This project demonstrates the implementation of a scalable full-stack web application with RESTful API integration, persistent data storage, and dynamic frontend rendering.
 
 🚀 Key Features
