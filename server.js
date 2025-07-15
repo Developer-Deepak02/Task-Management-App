@@ -15,7 +15,10 @@ app.use(cors()); // allow cross-origin requests
 mongoose
 	.connect(process.env.MONGO_URI)
 	.then(() => console.log("✅ MongoDB connected!"))
-	.catch((err) => console.error("❌ MongoDB connection error:", err));
+	.catch((err) => {
+		console.error("❌ MongoDB connection error:", err);
+		process.exit(1); // optional: exit on fatal DB connection failure
+	});
 
 // Routes
 app.use("/tasks", taskRoutes); // all /tasks routes
@@ -25,14 +28,7 @@ app.get("/", (req, res) => {
 	res.send("Welcome to the Task Management API!");
 });
 
-// ❌ Don't create a task on server start (commented out)
-/*
-const newTask = new Task({
-  title: "first task",
-  description: "Complete the backend schema setup",
-});
-newTask.save();
-*/
+
 
 // Start server
 const PORT = process.env.PORT || 5000;
